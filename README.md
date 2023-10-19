@@ -9,9 +9,9 @@
 # back
 
 - stocké les réponses au qcm pour en faire des stats:
-    les formations les plus pop (donc plus recherché)
-    nb de visiteurs
-    formations les plus aimé
+    - les formations les plus pop (donc plus recherché)
+    - nb de visiteurs
+    - formations les plus aimé
 
 # front
 
