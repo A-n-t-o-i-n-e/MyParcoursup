@@ -3,8 +3,14 @@
 # design de l'application
 
 ## les fonctionnalités
-
+- répondre au questionnaire
+- explorer les veux proposées
+- explorer les sous-veux des veux proposées
+- consulter les stats 
 ## les différentes pages
+- questionnaire
+- la page des 10 veux
+- une page "sous veux" ( on ne crée pas une page pour chaque sous-veux (formations), mais on crée un programme qui lorsqu'il recois la dmd de l'utilisateur de consulter les infos de la formations )
 
 # back
 
@@ -12,6 +18,7 @@
     - les formations les plus pop (donc plus recherché)
     - nb de visiteurs
     - formations les plus aimé
+- utiliser django
 
 # front
 
