@@ -1,5 +1,4 @@
-{
-  "Domaines": {
+[
     "Education_et_Formation": [
       "Année préparatoire",
       "CPES",
@@ -62,5 +61,4 @@
       "Licence - STAPS",
       "Mention complémentaire"
     ]
-  }
-}
+]
