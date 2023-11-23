@@ -1,0 +1,66 @@
+{
+  "Domaines": {
+    "Education_et_Formation": [
+      "Année préparatoire",
+      "CPES",
+      "Formation des écoles de commerce et de management",
+      "Formation des écoles supérieure d'art",
+      "Formation des écoles supérieures de cuisine",
+      "Formation professionnelle",
+      "Mention complémentaire",
+      "Mise à niveau"
+    ],
+    "Sciences_et_Technologies": [
+      "BTS - Agricole",
+      "BTS - Maritime",
+      "BTS - Production",
+      "BTS - Services",
+      "BUT - Production",
+      "BUT - Service",
+      "C.M.I - Cursus Master en Ingénierie",
+      "DEUST",
+      "DN MADE",
+      "Formations des écoles d'ingénieurs"
+    ],
+    "Arts_et_Lettres": [
+      "CUPGE - Arts Lettres Langues",
+      "Diplôme National d'Art",
+      "Licence - Arts-lettres-langues",
+      "Licence - Arts-lettres-langues / Sciences humaines et sociales"
+    ],
+    "Droit_et_Gestion": [
+      "BTS - Maritime",
+      "BTS - Services",
+      "BUT - Service",
+      "DCG",
+      "Formation des écoles de commerce et de management",
+      "LP - Droit-économie-gestion",
+      "Licence - Droit-économie-gestion",
+      "Licence - Droit-économie-gestion / Arts-lettres-langues",
+      "Licence - Droit-économie-gestion / Sciences - technologies - santé",
+      "Licence - Droit-économie-gestion / Sciences humaines et sociales"
+    ],
+    "Sciences_Humaines_et_Sociales": [
+      "CPES",
+      "D.E secteur sanitaire",
+      "D.E secteur social",
+      "LP - Sciences Humaines et Sociales",
+      "Licence - Arts-lettres-langues / Sciences humaines et sociales",
+      "Licence - Droit-économie-gestion / Sciences humaines et sociales",
+      "Mention complémentaire",
+      "Sciences politiques"
+    ],
+    "Sciences_de_la_Santé": [
+      "BPJEPS",
+      "D.E secteur sanitaire",
+      "D.E secteur social",
+      "DEJEPS",
+      "FCIL",
+      "Formations Bac + 3",
+      "Formations Bac + 5",
+      "Formations des écoles vétérinaires",
+      "Licence - STAPS",
+      "Mention complémentaire"
+    ]
+  }
+}
