@@ -4,13 +4,13 @@
 
 ## les fonctionnalités
 - répondre au questionnaire
-- explorer les veux proposées
-- explorer les sous-veux des veux proposées
+- explorer les Vœux proposées
+- explorer les sous-Vœux des Vœux proposées
 - consulter les stats 
 ## les différentes pages
 - questionnaire
-- la page des 10 veux
-- une page "sous veux" ( on ne crée pas une page pour chaque sous-veux (formations), mais on crée un programme qui lorsqu'il recois la dmd de l'utilisateur de consulter les infos de la formations )
+- la page des 10 Vœux
+- une page "sous Vœux" ( on ne crée pas une page pour chaque sous-Vœux (formations), mais on crée un programme qui lorsqu'il recois la dmd de l'utilisateur de consulter les infos de la formations )
 
 # back
 
@@ -25,19 +25,19 @@
 
 
 # fonctionnement de l'application
-## 10 veux
+## 10 Vœux
 
-Proposition de 10 veux basée sur un qcm qui permettent de distingué des critères.
-le qcm permet également de déterminé des sous veux optimaux
+Proposition de 10 Vœux basée sur un qcm qui permettent de distingué des critères.
+le qcm permet également de déterminé des sous Vœux optimaux
 
 ### Critère
 
 - les domaines aimés (1, 2, 3)
 
 
-### veux stratégique
+### Vœux stratégique
 
-## 20 sous veux par veux
+## 20 sous Vœux par Vœux
 
 ### Critère
 
