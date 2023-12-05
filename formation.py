@@ -13,7 +13,15 @@ def GetFormation(data):
             list_.append(veaux['form_lib_voe_acc'])
     list_.sort()
     return list_
-print(GetFormation(data))
+"""print(GetFormation(data))"""
 
+def GetEiffel(data):
+    for veaux in data: 
+        if 'Lycée Gustave Eiffel' == veaux['g_ea_lib_vx'] and "Classe préparatoire scientifique" == veaux['form_lib_voe_acc'] and veaux['acad_mies'] == "Bordeaux":
+            print(veaux)
+            print('\n'*1)
+GetEiffel(data)
+
+"""
 with open('formation.json',  'w') as fp:
-    dump(GetFormation(data), fp, sort_keys=True, indent=2)
+    dump(GetFormation(data), fp, sort_keys=True, indent=2)"""
