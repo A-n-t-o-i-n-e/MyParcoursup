@@ -1,4 +1,4 @@
-from json import load, dump
+from json import load, dump, dumps
 
 with open('filieres.json', "r", encoding="utf-8") as fp:
     filieres = load(fp)
@@ -36,10 +36,17 @@ def traitement_voeux(filieres, resultat_questionaire_voeux, domaines):
                     filieres_notees[filiere] += 1-i/len(resultat_questionaire_voeux[0])
     return filieres_notees
 
-"""sorted(filieres_notees, key=filieres_notees.get, reverse=True)[:10]"""
+filieres_notees = traitement_voeux(filieres, resultat_questionaire_voeux, domaines)
+print(sorted(filieres_notees, key=filieres_notees.get, reverse=True)[:10])
 
 
 
 
 
-print(traitement_voeux(filieres, resultat_questionaire_voeux, domaines))
+# mis en forme des données
+print(
+    dumps(
+        traitement_voeux(filieres, resultat_questionaire_voeux, domaines), 
+        indent=2
+    )
+)
