@@ -37,7 +37,7 @@ def traitement_voeux(filieres, resultat_questionaire_voeux, domaines):
     return filieres_notees
 
 filieres_notees = traitement_voeux(filieres, resultat_questionaire_voeux, domaines)
-print(sorted(filieres_notees, key=filieres_notees.get, reverse=True)[:10])
+print(sorted(filieres_notees, key=filieres_notees.get, reverse=True)[:15])
 
 
 
