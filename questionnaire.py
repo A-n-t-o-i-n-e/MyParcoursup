@@ -4,7 +4,7 @@ def questionaire_voeux():
     
 
     Retourne la liste des résultats du questionnaire:
-    - max 5 domaines
+    - max 3 domaines
     - duree etude
     - alternance 
     - autonome
@@ -12,28 +12,37 @@ def questionaire_voeux():
 
     Exemple de retour :
     [
-        ["D.E secteur sanitaire", "D.E secteur social", "DCG", "DEJEPS", "DEUST", "DN MADE"],
+        ["D.E secteur sanitaire", "DEUST", None],
         ["0-2", "3-5", "5+"],
-        True,
-        False,
-        False
+        [True],
+        [False],
+        [False]
     ]
     """
+    pass
 
 
-def traitement_voeux(filieres, resultat_questionaire_voeux):
+def traitement_voeux(filieres, resultat_questionaire_voeux, domaines):
     """
     Attribue une note a chaque filiere de 0 a 1 
     pour faire un classement des filières et seletionneé les 10 premières filières.
     
-    exemple : 
+    Exemple:
     
+
     Arguements : 
     - filieres : liste de toutes les filières (filieres.json)
     Retourne :
     - liste de 10 voeux (filiere)
     """
+    filieres_notees = {filiere : 0 for filiere in filieres}
 
+    for i in range(len(resultat_questionaire_voeux[0])):
+        for domaine in domaines.keys():
+            if resultat_questionaire_voeux[0][i] == domaine:
+                for filiere in domaines[domaine]:
+                    filieres_notees[filiere] += 1-i/len(resultat_questionaire_voeux[0])
+            
 
 def questionaire_sous_voeux():
     """
@@ -43,6 +52,7 @@ def questionaire_sous_voeux():
     Retourne :
     - liste de 20 sous-voeux (formations)
     """
+    pass
 
 
 def traitement_sous_voeux(formations, voeux_selectionnes, resultat_questionaire_sous_voeux):
@@ -53,3 +63,4 @@ def traitement_sous_voeux(formations, voeux_selectionnes, resultat_questionaire_
     Retourne :
     - liste de 20 sous-voeux (formations)
     """
+    pass

@@ -1,7 +1,5 @@
-# main 
-
-from json import load, dump
-
+from questionnaire import *
+from json import load, dumps
 with open('fr-esr-parcoursup.json') as fp:
     data = load(fp)
 
