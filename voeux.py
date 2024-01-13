@@ -1,6 +1,8 @@
 class Voeux:
-    def __init__(self, formation_dict):
-        pass
+    def __init__(self, formation : dict):
+        self.formation = formation
 
-    def __str__(self):
-        pass
+class SousVoeux:
+    def __init__(self, voeux : Voeux, formation : dict):
+        self.voeux = voeux
+        self.formation = formation
