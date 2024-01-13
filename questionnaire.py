@@ -37,11 +37,18 @@ def traitement_voeux(filieres, resultat_questionaire_voeux, domaines):
     """
     filieres_notees = {filiere : 0 for filiere in filieres}
 
+    # domaines
     for i in range(len(resultat_questionaire_voeux[0])):
         for domaine in domaines.keys():
             if resultat_questionaire_voeux[0][i] == domaine:
                 for filiere in domaines[domaine]:
                     filieres_notees[filiere] += 1-i/len(resultat_questionaire_voeux[0])
+
+    # duree etude
+    # alternance 
+    # autonome
+    # dans un lycee 
+
     return filieres_notees
             
 
