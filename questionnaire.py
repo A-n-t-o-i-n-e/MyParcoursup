@@ -42,6 +42,7 @@ def traitement_voeux(filieres, resultat_questionaire_voeux, domaines):
             if resultat_questionaire_voeux[0][i] == domaine:
                 for filiere in domaines[domaine]:
                     filieres_notees[filiere] += 1-i/len(resultat_questionaire_voeux[0])
+    return filieres_notees
             
 
 def questionaire_sous_voeux():
