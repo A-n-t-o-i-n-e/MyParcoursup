@@ -45,12 +45,17 @@ def traitement_voeux(filieres, resultat_questionaire_voeux, domaines):
                     filieres_notees[filiere] += 1-i/len(resultat_questionaire_voeux[0])
 
     # duree etude
+    
+    # alternance 
     if resultat_questionaire_voeux[1]:
         pass
-    # alternance 
     # autonome
+    if resultat_questionaire_voeux[1]:
+        pass
     # dans un lycee 
-
+    if resultat_questionaire_voeux[1]:
+        pass
+    
     return filieres_notees
             
 
