@@ -7,7 +7,6 @@ def questionaire_voeux():
     - max 3 domaines
     - duree etude
     - alternance 
-    - autonome
     - dans un lycee 
 
     Exemple de retour :
@@ -15,14 +14,13 @@ def questionaire_voeux():
         ["D.E secteur sanitaire", "DEUST", None],
         ["0-2", "3-5", "5+"],
         [True],
-        [False],
         [False]
     ]
     """
     pass
 
 
-def traitement_voeux(filieres, resultat_questionaire_voeux, domaines):
+def traitement_voeux(resultat_questionaire_voeux, traitement_voeux):
     """
     Attribue une note a chaque filiere de 0 a 1 
     pour faire un classement des filières et seletionneé les 10 premières filières.
@@ -35,27 +33,13 @@ def traitement_voeux(filieres, resultat_questionaire_voeux, domaines):
     Retourne :
     - liste de 10 voeux (filiere)
     """
-    filieres_notees = {filiere : 0 for filiere in filieres}
+    filieres_notees = {filiere["fili"] : 0 for filiere in traitement_voeux}
 
-    # domaines
-    for i in range(len(resultat_questionaire_voeux[0])):
-        for domaine in domaines.keys():
-            if resultat_questionaire_voeux[0][i] == domaine:
-                for filiere in domaines[domaine]:
-                    filieres_notees[filiere] += 1-i/len(resultat_questionaire_voeux[0])
-
-    # duree etude
+    key = ["fili", "domaine", "duree_etude", "alternance", "lycee"]
     
-    # alternance 
-    if resultat_questionaire_voeux[1]:
+    for filiere in traitement_voeux:
+        #complete 
         pass
-    # autonome
-    if resultat_questionaire_voeux[1]:
-        pass
-    # dans un lycee 
-    if resultat_questionaire_voeux[1]:
-        pass
-    
     return filieres_notees
             
 
