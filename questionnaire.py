@@ -36,8 +36,7 @@ def traitement_voeux(resultat_questionaire_voeux, _traitement_voeux):
         ["Sciences_et_Technologies", "Education_et_Formation"],
         ["0-2", "3-5", "5+"],
         [False],
-        [F
-        alse]
+        [False]
     ]
     Retourne :
     - liste de 10 voeux (filiere)

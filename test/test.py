@@ -5,9 +5,9 @@ with open('traitement-voeux.json', "r", encoding="utf-8") as fp:
 
 
 resultat_questionaire_voeux = [
-    ["Sciences_et_Technologies", "Education_et_Formation"],
-    ["0-2", "3-5", "5+"],
-    [False],
+    ["Sciences_et_Technologies"],
+    ["3-5", "5+", "0-2"],
+    [True],
     [False]
 ]
 
