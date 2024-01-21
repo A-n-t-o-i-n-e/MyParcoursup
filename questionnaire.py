@@ -42,10 +42,11 @@ def traitement_voeux(resultat_questionaire_voeux, traitement_voeux):
         #parcours des domaines des resultats
         for i_domaine, domaine in enumerate(resultat_questionaire_voeux[0]):
             if filiere['domaine'] == domaine:  # le res du user est dans la filiere parcouru
-                filieres_notees[filiere['fili']] = 1 - i_domaine / len(resultat_questionaire_voeux[0])
+                filieres_notees[filiere['fili']] += 1 - i_domaine / len(resultat_questionaire_voeux[0])
         # parcours des duree_etude des resultats
-        for i_duree_etude, duree_etude in enumerate(resultat_questionaire_voeux[1 ]):
-
+        for i_duree_etude, duree_etude in enumerate(resultat_questionaire_voeux[1]):
+            if filiere['duree_etude'] == duree_etude:
+                filieres_notees[filiere['fili']] += 1 - i_duree_etude / len(resultat_questionaire_voeux[1])
     return filieres_notees
             
 
