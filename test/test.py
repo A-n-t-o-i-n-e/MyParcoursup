@@ -26,18 +26,15 @@ def traitement_voeux(resultat_questionaire_voeux, _traitement_voeux):
     """
     filieres_notees = {filiere["fili"] : 0 for filiere in _traitement_voeux}
 
-    key = ["fili", "domaine", "duree_etude", "alternance", "lycee"]
+    key = ["domaine", "duree_etude", "alternance", "lycee"]
     
     # parcours des filiere 
     for i_filiere, filiere in enumerate(_traitement_voeux):
-        #parcours des domaines des resultats
-        for i_domaine, domaine in enumerate(resultat_questionaire_voeux[0]):
-            if filiere['domaine'] == domaine:  # le res du user est dans la filiere parcouru
-                filieres_notees[filiere['fili']] += 1 - i_domaine / len(resultat_questionaire_voeux[0])
-        # parcours des duree_etude des resultats
-        for i_duree_etude, duree_etude in enumerate(resultat_questionaire_voeux[1]):
-            if filiere['duree_etude'] == duree_etude:
-                filieres_notees[filiere['fili']] += 1 - i_duree_etude / len(resultat_questionaire_voeux[1])
+        for i_res_q in range(len(resultat_questionaire_voeux)):
+            #parcours des domaines des resultats
+            for i_domaine, domaine in enumerate(resultat_questionaire_voeux[i_res_q]):
+                if filiere[key[i_res_q]] == domaine:  # le res du user est dans la filiere parcouru
+                    filieres_notees[filiere['fili']] += 1 - i_domaine / len(resultat_questionaire_voeux[i_res_q])
     return filieres_notees
 
 filieres_notees = traitement_voeux(resultat_questionaire_voeux, _traitement_voeux)
