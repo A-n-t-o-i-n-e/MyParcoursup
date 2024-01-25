@@ -1,82 +1,110 @@
-from json import load, dump
+import questions
 
-with open('fr-esr-parcoursup.json') as fp:
-    data = load(fp)
+def questionaire_voeux():
+    """
+    Pour chaque question, trie les formations choisis par ordre de préférence 
+    
 
-def GetFormation(data):
-    list_ = []
-    for voeux in data:
-        if not voeux['form_lib_voe_acc'] in list_:
-            list_.append(voeux['form_lib_voe_acc'])
-    list_.sort()
-    return list_
-#print(GetFormation(data))
+    Retourne la liste des résultats du questionnaire:
+    - max 3 domaines
+    - duree etude
+    - alternance 
+    - dans un lycee 
 
-def GetAcademie(data):
-    list_ = []
-    for voeux in data:
-        if not voeux['acad_mies'] in list_:
-            list_.append(voeux['acad_mies'])
-    list_.sort()
-    return list_
-#print(GetAcademie(data))
+    Exemple de retour :
+    [
+        ["D.E secteur sanitaire", "DEUST", None],
+        ["0-2", "3-5", "5+"],
+        [True],
+        [False]
+    ]
+    """
 
-# Fonction to get formation by academie
-def GetFormationByAcademie(data, academie):
-    list_ = []
-    for voeux in data:
-        if voeux['acad_mies'] == academie:
-            list_.append(voeux['form_lib_voe_acc'])
-    list_.sort()
-    return list_
-#print(GetFormationByAcademie(data, 'Aix-Marseille'))
-
-
-import re
-
-def get_categories(formation):
-  """
-  Renvoie une liste de catégories pour une formation.
-
-  Args:
-    formation: Le nom de la formation.
-
-  Returns:
-    Une liste de catégories.
-  """
-
-  categories = []
-
-  # Niveau d'études
-
-  if re.match(r"(Année préparatoire|BTS|BUT|CPGE|CUPGE|DE|DN MADE|Licence|LP|DCG|DEUST|DJE\w+|CPES|FCIL|Licence professionnelle|Licence valant grade de licence|Mention complémentaire|Mise à niveau)", formation):
-    categories.append("Niveau d'études")
-
-  # Domaine d'études
-
-  if re.match(r"(Arts|Droit|Economie|Gestion|Sciences|Technologies|Santé|Sciences humaines et sociales)", formation):
-    categories.append("Domaine d'études")
-
-  # Secteur d'activité
-
-  if re.match(r"(Agricole|Maritime|Production|Services|Sanitaire et social|Commerce et distribution|Restauration|Construction|Informatique|Technologies de l'information et de la communication|Santé|Social|Enseignement|Recherche)", formation):
-    categories.append("Secteur d'activité")
-
-  # Discipline
-
-  if re.match(r"(Lettres|Langues|Histoire|Géographie|Philosophie|Sciences humaines|Sociologie|Economie|Gestion|Mathématiques|Physique|Chimie|Biologie|Sciences de la santé|Droit|Sciences politiques|Communication|Marketing|Commerce|Hôtellerie|Restauration|Informatique|Technologies de l'information et de la communication|Génie civil|Architecture|Ingénierie|Santé|Social|Enseignement|Recherche)", formation):
-    categories.append("Discipline")
-
-  return categories
+    user_response = []
+    Domaine_ = []
+    Duree_ = []
+    for _ in range(3):
+        Domaine_.append(questions.domaine())
+        Duree_.append(questions.duree_etude())
+    user_response.append(Domaine_)
+    user_response.append(Duree_)
+    
+    print("\nÊtes-vous intéressé par l'alternance entre études et travail ?")
+    print("1. Oui")
+    print("2. Non")
+    alternance_input = input("Entrez le numéro correspondant à votre choix : ")
+    mapping_alternance = {"1": True, "2": False}
+    user_response.append([mapping_alternance.get(alternance_input)])
+    
+    print(user_response)
+    return user_response
 
 
-formations = ["Année préparatoire", "BPJEPS", "BTS - Agricole", "BTS - Maritime", "BTS - Production", "BTS - Services", "BUT - Production", "BUT - Service", "C.M.I - Cursus Master en Ingénieurie", "CPES", "CUPGE - Arts Lettres Langues", "CUPGE - Droit-Économie-Gestion", "CUPGE - Sciences, technologie, santé", "Cadre Technique", "Certificat de Spécification Agricole", "Classe préparatoire aux Études Supérieures", "Classe préparatoire Littéraire", "Classe préparatoire Scientifique", "Classe préparatoire Économique et Commerciale", "D.E secteur sanitaire", "D.E secteur social", "DCG", "DEJEPS", "DEUST", "DN MADE", "Diplôme National d'Art", "Diplôme d'Etablissement", "Diplôme d'Université", "Diplôme d'Établissement", "FCIL", "Formation des Écoles de Commerce et de Management", "Formation des Écoles Supérieures d'Art", "Formation des Écoles Supérieures de Cuisine", "Formation professionnelle", "Formation valant grade de licence", "Formations  des Écoles d'Ingénieurs", "Formations Bac + 3", "Formations Bac + 5", "Formations des Écoles Vétérinaires", "LP - Sciences Humaines et Sociales", "LP - Droit-Économie-Gestion", "LP - Sciences - Technologies - Santé", "Licence - Arts-Lettres-Langues", "Licence - Arts-Lettres-Langues / Sciences humaines et sociales", "Licence - Droit-Économie-Gestion", "Licence - Droit-Économie-Gestion / Arts-Lettres-Langues", "Licence - Droit-Économie-Gestion / Sciences - Technologies - Santé", "Licence - Droit-Économie-Gestion / Sciences humaines et sociales", "Licence - STAPS", "Licence - Sciences - Technologies - Santé", "Licence - Sciences humaines et sociales", "Mention complémentaire", "Mise à niveau", "Sciences politiques"]
+def traitement_voeux(resultat_questionaire_voeux, _traitement_voeux):
+    """
+    Attribue une note a chaque filiere de 0 a 4 
+    pour faire un classement des filières et seletionneé les 10 premières filières.
+    
+    Arguements : 
+    - _traitement_voeux : liste de toutes les filières avec d'autres info(traitement-voeux.json)
+    exemple:
+    {"fili" :"Année préparatoire", "domaine" : "Education_et_Formation", "duree_etude" : "0-2", "alternance" : false, "lycee" : false},
+    
+    - resultat_questionaire_voeux
+    exemple:
+    [
+        ["Sciences_et_Technologies", "Education_et_Formation"],
+        ["0-2", "3-5", "5+"],
+        [False],
+        [False]
+    ]
+    Retourne :
+    - liste de 10 voeux (filiere)
+    exemple:
+    [
+        'CUPGE - Sciences, technologie, santé', 
+        'Licence - Sciences - technologies - santé', 
+        'Année préparatoire', 
+        'Formation des écoles de commerce et de management', 
+        "Formation des écoles supérieure d'art", 
+        'Formation des écoles supérieures de cuisine', 
+        'Formation professionnelle', 
+        'Formation valant grade de licence', 
+        'Mention complémentaire', 
+        'Mise à niveau'
+    ]
+    """
+    filieres_notees = {filiere["fili"] : 0 for filiere in _traitement_voeux}
 
-categories = []
-for formation in formations:
-  categories.append(get_categories(formation))
+    key = ["domaine", "duree_etude", "alternance", "lycee"]
+    
+    # parcours des filiere 
+    for i_filiere, filiere in enumerate(_traitement_voeux):
+        for i_res_q in range(len(resultat_questionaire_voeux)):
+            #parcours des domaines des resultats
+            for i_domaine, domaine in enumerate(resultat_questionaire_voeux[i_res_q]):
+                if filiere[key[i_res_q]] == domaine:  # le res du user est dans la filiere parcouru
+                    filieres_notees[filiere['fili']] += 1 - i_domaine / len(resultat_questionaire_voeux[i_res_q])
+    return sorted(filieres_notees, key=filieres_notees.get, reverse=True)[:10]
+            
 
-print(categories)
+def questionaire_sous_voeux():
+    """
+    Arguements : 
+    - formations : liste de toutes les formations (fr-esr-parcoursup.json)
+    - voeux_selectionnes : liste de 10 voeux (filieres)
+    Retourne :
+    - liste de 20 sous-voeux (formations)
+    """
+    pass
 
 
-
+def traitement_sous_voeux(formations, voeux_selectionnes, resultat_questionaire_sous_voeux):
+    """
+    Arguements : 
+    - formations : liste de toutes les formations (fr-esr-parcoursup.json)
+    - voeux_selectionnes : liste de 10 voeux (filieres)
+    Retourne :
+    - liste de 20 sous-voeux (formations)
+    """
+    pass
