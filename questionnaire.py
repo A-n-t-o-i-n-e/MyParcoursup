@@ -19,6 +19,7 @@ def questionaire_voeux():
         [False]
     ]
     """
+    print("\033[0;31m⚠️  ⚠️  ATTENTION L'ORDRE DES CHOIX EST IMPORTANT ⚠️  ⚠️\033[0m")
     user_response = []
     user_response.append(questions.domaine())
     user_response.append(questions.duree_etude())
