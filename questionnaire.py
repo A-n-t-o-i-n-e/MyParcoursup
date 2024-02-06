@@ -1,3 +1,5 @@
+import questions
+
 def questionaire_voeux():
     """
     Pour chaque question, trie les formations choisis par ordre de préférence 
@@ -17,7 +19,11 @@ def questionaire_voeux():
         [False]
     ]
     """
-    pass
+    user_response = []
+    user_response.append(questions.domaine())
+    user_response.append(questions.duree_etude())
+    user_response.append(questions.alternance())
+    user_response.append(questions.dans_lycee())
 
 
 def traitement_voeux(resultat_questionaire_voeux, _traitement_voeux):
