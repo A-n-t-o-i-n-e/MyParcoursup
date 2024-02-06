@@ -1,4 +1,5 @@
 def domaine():
+    print("\033[0;31m⚠️  ⚠️  ATTENTION SEULEMENT UN \"NONE\" POSSIBLE ⚠️  ⚠️   \033[0m")
     dom =['Education_et_Formation', 'Sciences_de_la_Santé', 'Sciences_et_Technologies', 'Droit_et_Gestion', 'Arts_et_Lettres', 'Sciences_Humaines_et_Sociales', None]
     domaine_output = []
     for _ in range(3):
