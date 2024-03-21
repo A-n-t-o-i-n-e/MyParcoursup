@@ -2,7 +2,8 @@ from questionnaire import *
 from json import load, dumps
 with open('fr-esr-parcoursup.json') as fp:
     data = load(fp)
-
+with open('traitement-voeux.json', "r", encoding="utf-8") as fp:
+    _traitement_voeux = load(fp)
 
 
 def voeux(data):
@@ -27,4 +28,7 @@ def voeux(data):
     - centre intéret
     - en rapport avec le domaine
     """
-    pass
+    resultat = questionaire_voeux()
+    print(traitement_voeux(resultat, _traitement_voeux))
+
+voeux(data)

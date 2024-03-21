@@ -26,6 +26,7 @@ def questionaire_voeux():
     user_response.append(questions.alternance())
     user_response.append(questions.dans_lycee())
 
+    return user_response
 
 def traitement_voeux(resultat_questionaire_voeux, _traitement_voeux):
     """

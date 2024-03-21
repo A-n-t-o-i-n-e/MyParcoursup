@@ -15,14 +15,14 @@ def domaine():
 def duree_etude():
     etude = ['0-2', '3-5', '5+']
     etude_output = []
-    for _ in range(3): ######## Faire que 2 vu que dernier obligatoire 
+    for _ in range(2):
         print("Choix :", etude_output)
         print("\nChoisissez une durée préférée pour le cours :")
         for i in range(1, len(etude)+1):
             print(i, etude[i-1])
         duree_etude_input = int(input("Entrez le numéro correspondant à votre choix : "))
         etude_output.append(etude.pop(duree_etude_input-1))
-    
+    etude_output.append(etude.pop(duree_etude_input-1))
     return etude_output
 
 def alternance():

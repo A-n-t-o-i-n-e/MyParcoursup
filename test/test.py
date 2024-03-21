@@ -19,7 +19,7 @@ def traitement_voeux(resultat_questionaire_voeux, _traitement_voeux):
     Exemple:
     
 
-    Arguements : 
+    Arguments : 
     - filieres : liste de toutes les filières (filieres.json)
     Retourne :
     - liste de 10 voeux (filiere)
