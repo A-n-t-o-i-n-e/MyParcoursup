@@ -21,7 +21,7 @@ def traitement_voeux(resultat_questionaire_voeux, _traitement_voeux):
 
     Arguements : 
     - filieres : liste de toutes les filières (filieres.json)
-    Retourne :
+    Retourne : 
     - liste de 10 voeux (filiere)
     """
     filieres_notees = {filiere["fili"] : 0 for filiere in _traitement_voeux}
