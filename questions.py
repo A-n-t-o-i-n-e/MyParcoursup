@@ -22,7 +22,7 @@ def duree_etude():
             print(i, etude[i-1])
         duree_etude_input = int(input("Entrez le numéro correspondant à votre choix : "))
         etude_output.append(etude.pop(duree_etude_input-1))
-    etude_output.append(etude.pop(duree_etude_input-1))
+    #etude_output.append(etude.pop(duree_etude_input-1))
     return etude_output
 
 def alternance():

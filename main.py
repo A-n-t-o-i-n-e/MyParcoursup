@@ -1,10 +1,23 @@
 from questionnaire import *
 from json import load, dumps
+from bs4 import BeautifulSoup
+import requests
+
 with open('fr-esr-parcoursup.json') as fp:
     data = load(fp)
+    fp.close()
 with open('traitement-voeux.json', "r", encoding="utf-8") as fp:
     _traitement_voeux = load(fp)
+    fp.close()
 
+def get_ecole_link(url):
+    response = requests.get(url)
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.content, 'html.parser')
+        link_ecole = soup.find('a', id='lien-site-internet-etab-2')
+        return link_ecole['href'] if link_ecole else None
+    else:
+        return None
 
 def voeux(data):
     """
